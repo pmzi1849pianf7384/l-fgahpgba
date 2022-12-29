@@ -1,0 +1,30 @@
+local stam = true
+local lp = game.Players.LocalPlayer
+
+_G.loop = true
+
+while _G.loop do
+  function infstam()
+    wait(0.5)
+    if game.PlaceId ~= 455366377 then
+        lp.Backpack.ServerTraits.Stann.Changed:Connect(
+            function()
+                if stam then
+                    lp.Backpack.ServerTraits.Stann.Value = 100
+                end
+            end
+        )
+    else
+        lp.Character.Stamina.Changed:Connect(
+            function()
+                if stam then
+                    lp.Character.Stamina.Value = 100
+                end
+            end
+        )
+    end
+end
+infstam()
+
+   wait() -- delay to prevent crashing
+end
